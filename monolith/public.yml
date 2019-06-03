@@ -1,0 +1,100 @@
+elasticsearch_endpoint: '{{ groups.elasticsearch.0 }}'
+elasticsearch_memory: '2048m'
+elasticsearch_cluster_name: 'monolith-es'
+elasticsearch_version: 1.7.6
+elasticsearch_download_sha256: 78affc30353730ec245dad1f17de242a4ad12cf808eaa87dd878e1ca10ed77df.
+
+backup_blobdb: False
+backup_postgres: False
+backup_es_s3: False
+backup_couch: False
+postgres_s3: False
+blobdb_s3: False
+couch_s3: False
+
+couchdb2:
+  username: "{{ localsettings_private.COUCH_USERNAME }}"
+  password: "{{ localsettings_private.COUCH_PASSWORD }}"
+
+couchdb_cluster_settings:
+  q: 8
+  r: 1
+  w: 1
+  n: 1
+
+couch_dbs:
+  default:
+    host: 127.0.0.1
+    port: 25984
+    name: commcarehq
+    username: "{{ localsettings_private.COUCH_USERNAME }}"
+    password: "{{ localsettings_private.COUCH_PASSWORD }}"
+    is_https: False
+
+server_email: commcare@monolith.commcarehq.dev
+default_from_email: commcare@monolith.commcarehq.dev
+
+KSPLICE_ACTIVE: no
+
+nameservers:
+  - 8.8.8.8
+  - 8.8.4.4
+
+TWO_FACTOR_GATEWAY_ENABLED: False
+
+localsettings:
+  ALLOWED_HOSTS: ~
+  BANK_ADDRESS: ~
+  BANK_NAME: ~
+  BANK_SWIFT_CODE: ~
+  CLOUDCARE_BASE_URL: http://localhost:9010
+  COUCH_CACHE_DOCS: True
+  COUCH_CACHE_VIEWS: True
+  COUCH_DATABASE_NAME: "{{ localsettings_private.COUCH_DATABASE_NAME }}"
+  COUCH_HTTPS: False
+  COUCH_PASSWORD: "{{ localsettings_private.COUCH_PASSWORD }}"
+  COUCH_SERVER_ROOT: "127.0.0.1"
+  COUCH_USERNAME: "{{ localsettings_private.COUCH_USERNAME }}"
+  COUCH_STALE_QUERY: 'update_after'
+  DEPLOY_MACHINE_NAME: "{{ ansible_hostname }}"
+  EMAIL_SMTP_HOST: 'localhost'
+  EMAIL_SMTP_PORT: 25
+  EMAIL_USE_TLS: no
+  HQ_INSTANCE: monolith
+  HUBSPOT_API_ID:
+  HUBSPOT_API_KEY:
+  INVOICE_FROM_ADDRESS:
+    'name': "Dimagi, Inc."
+    'first_line': "585 Massachusetts Ave"
+    'city': "Cambridge"
+    'region': "MA"
+    'postal_code': "02139"
+    'country': "US"
+    'phone_number': "(617) 649-2214"
+    'email': "accounts@dimagi.com"
+    'website': "http://www.dimagi.com"
+  INVOICE_PREFIX: INC-
+  INVOICE_STARTING_NUMBER: 5000
+  J2ME_ADDRESS: ''
+#  KAFKA_HOST:
+  #  PILLOWTOP_MACHINE_ID:
+  PILLOW_RETRY_QUEUE_ENABLED: True
+  REDIS_DB: '0'
+  REDIS_HOST: "localhost"
+  REDIS_PORT: '6379'
+  REMINDERS_QUEUE_ENABLED: False
+  SMS_GATEWAY_URL: 'http://gw1.promessaging.com/sms.php'
+  SMS_QUEUE_ENABLED: False
+#  STATIC_ROOT:
+  ENABLE_PRELOGIN_SITE: False
+  ENTERPRISE_MODE: True
+  RESTRICT_DOMAIN_CREATION: True
+
+PY3_RUN_CELERY_BEAT: False
+PY3_RUN_CELERY_FLOWER: False
+PY3_RUN_CELERY_WORKER: False
+PY3_RUN_ERRAND_BOY: False
+PY3_RUN_GUNICORN: False
+PY3_RUN_MANAGEMENT: False
+PY3_RUN_PILLOWTOP: False
+PY3_RUN_WEBSOCKETS: False
