@@ -22,10 +22,11 @@ couchdb_cluster_settings:
   w: 1
   n: 1
 
+couchdb_use_haproxy: True
 couch_dbs:
   default:
     host: 127.0.0.1
-    port: 25984
+    port: 35984
     name: commcarehq
     username: "{{ localsettings_private.COUCH_USERNAME }}"
     password: "{{ localsettings_private.COUCH_PASSWORD }}"
@@ -33,8 +34,13 @@ couch_dbs:
 
 server_email: commcare@monolith.commcarehq.dev
 default_from_email: commcare@monolith.commcarehq.dev
+root_email: /dev/null
+
+BROKER_URL: 'redis://localhost:6379/0'
 
 KSPLICE_ACTIVE: no
+
+DATADOG_ENABLED: False
 
 nameservers:
   - 8.8.8.8
@@ -43,14 +49,13 @@ nameservers:
 TWO_FACTOR_GATEWAY_ENABLED: False
 
 localsettings:
-  ALLOWED_HOSTS: ~
+  ALLOWED_HOSTS: []
   BANK_ADDRESS: ~
   BANK_NAME: ~
   BANK_SWIFT_CODE: ~
   CLOUDCARE_BASE_URL: http://localhost:9010
   COUCH_CACHE_DOCS: True
   COUCH_CACHE_VIEWS: True
-  COUCH_DATABASE_NAME: "{{ localsettings_private.COUCH_DATABASE_NAME }}"
   COUCH_HTTPS: False
   COUCH_PASSWORD: "{{ localsettings_private.COUCH_PASSWORD }}"
   COUCH_SERVER_ROOT: "127.0.0.1"

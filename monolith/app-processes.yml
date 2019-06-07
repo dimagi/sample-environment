@@ -1,64 +1,52 @@
-jython_memory: "1024m"
 formplayer_memory: "1024m"
 
 celery_processes:
   monolith:
-    repeat_record_queue:
-      concurrency: 2
-    celery,case_import_queue:
-      concurrency: 2
-    background_queue,export_download_queue,saved_exports_queue,analytics_queue:
-      concurrency: 4
-# wait until background_queue,export_download_queue have been verified to work with optimize
-#      optimize: True
-    ucr_queue,async_restore_queue,email_queue,case_rule_queue:
+    repeat_record_queue,celery,case_import_queue,background_queue,export_download_queue,saved_exports_queue,analytics_queue,ucr_queue,async_restore_queue,email_queue,case_rule_queue,celery_periodic:
       concurrency: 1
     beat: {}
-    celery_periodic:
-      concurrency: 2
     flower: {}
   None:
-    # todo: create these queues?
     reminder_case_update_queue:
     reminder_rule_queue:
     sms_queue:
 pillows:
   monolith:
-    AppDbChangeFeedPillow:
-      num_processes: 1
-    ApplicationToElasticsearchPillow:
-      num_processes: 1
-    CacheInvalidatePillow:
-      num_processes: 1
-    CaseToElasticsearchPillow:
-      num_processes: 1
-    DefaultChangeFeedPillow:
-      num_processes: 1
-    DomainDbKafkaPillow:
-      num_processes: 1
-    FormSubmissionMetadataTrackerPillow:
-      num_processes: 1
-    GroupPillow:
-      num_processes: 1
-    GroupToUserPillow:
-      num_processes: 1
-    KafkaDomainPillow:
-      num_processes: 1
-    LedgerToElasticsearchPillow:
-      num_processes: 1
-    SqlSMSPillow:
-      num_processes: 1
-    UnknownUsersPillow:
-      num_processes: 1
-    UpdateUserSyncHistoryPillow:
-      num_processes: 1
-    UserCacheInvalidatePillow:
-      num_processes: 1
-    UserGroupsDbKafkaPillow:
-      num_processes: 1
-    UserPillow:
-      num_processes: 1
-    XFormToElasticsearchPillow:
-      num_processes: 1
+    # AppDbChangeFeedPillow:
+    #   num_processes: 1
+    # ApplicationToElasticsearchPillow:
+    #   num_processes: 1
+    # CacheInvalidatePillow:
+    #   num_processes: 1
+    # CaseToElasticsearchPillow:
+    #   num_processes: 1
+    # DefaultChangeFeedPillow:
+    #   num_processes: 1
+    # DomainDbKafkaPillow:
+    #   num_processes: 1
+    # FormSubmissionMetadataTrackerPillow:
+    #   num_processes: 1
+    # GroupPillow:
+    #   num_processes: 1
+    # GroupToUserPillow:
+    #   num_processes: 1
+    # KafkaDomainPillow:
+    #   num_processes: 1
+    # LedgerToElasticsearchPillow:
+    #   num_processes: 1
+    # SqlSMSPillow:
+    #   num_processes: 1
+    # UnknownUsersPillow:
+    #   num_processes: 1
+    # UpdateUserSyncHistoryPillow:
+    #   num_processes: 1
+    # UserCacheInvalidatePillow:
+    #   num_processes: 1
+    # UserGroupsDbKafkaPillow:
+    #   num_processes: 1
+    # UserPillow:
+    #   num_processes: 1
+    # XFormToElasticsearchPillow:
+    #   num_processes: 1
     kafka-ucr-static:
       num_processes: 1
