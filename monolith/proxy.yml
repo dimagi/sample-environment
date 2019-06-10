@@ -1,4 +1,4 @@
 SITE_HOST: 'monolith.commcarehq.dev'
 
-special_sites:
-letsencrypt_cchq_ssl: True
+special_sites: []
+fake_ssl_cert: True
