@@ -42,14 +42,14 @@ KSPLICE_ACTIVE: no
 
 DATADOG_ENABLED: False
 
-nameservers:
-  - 8.8.8.8
-  - 8.8.4.4
+nameservers: []
+internal_domain_name: 'commcarehq.dev'
 
 TWO_FACTOR_GATEWAY_ENABLED: False
 
 localsettings:
-  ALLOWED_HOSTS: []
+  ALLOWED_HOSTS:
+    - 'monolith.commcarehq.dev'
   BANK_ADDRESS: ~
   BANK_NAME: ~
   BANK_SWIFT_CODE: ~
