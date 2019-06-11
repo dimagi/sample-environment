@@ -1,4 +1,5 @@
 deploy_env: monolith
 env_monitoring_id: monolith
 users:
-  - dimagi
+  - projectbalance
+  - itech
