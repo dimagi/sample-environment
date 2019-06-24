@@ -32,8 +32,8 @@ couch_dbs:
     password: "{{ localsettings_private.COUCH_PASSWORD }}"
     is_https: False
 
-server_email: commcare@monolith.commcarehq.dev
-default_from_email: commcare@monolith.commcarehq.dev
+server_email: commcare@monolith.commcarehq.test
+default_from_email: commcare@monolith.commcarehq.test
 root_email: /dev/null
 
 BROKER_URL: 'redis://localhost:6379/0'
@@ -43,13 +43,13 @@ KSPLICE_ACTIVE: no
 DATADOG_ENABLED: False
 
 nameservers: []
-internal_domain_name: 'commcarehq.dev'
+internal_domain_name: 'commcarehq.test'
 
 TWO_FACTOR_GATEWAY_ENABLED: False
 
 localsettings:
   ALLOWED_HOSTS:
-    - 'monolith.commcarehq.dev'
+    - 'monolith.commcarehq.test'
   BANK_ADDRESS: ~
   BANK_NAME: ~
   BANK_SWIFT_CODE: ~
