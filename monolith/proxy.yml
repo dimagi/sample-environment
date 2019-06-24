@@ -1,4 +1,4 @@
-SITE_HOST: 'monolith.commcarehq.dev'
+SITE_HOST: 'monolith.commcarehq.test'
 
 special_sites: []
 fake_ssl_cert: True
