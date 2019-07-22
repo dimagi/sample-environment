@@ -1,5 +1,7 @@
 formplayer_memory: "1024m"
 
+management_commands:
+  monolith:
 celery_processes:
   monolith:
     repeat_record_queue,celery,case_import_queue,background_queue,export_download_queue,saved_exports_queue,analytics_queue,ucr_queue,async_restore_queue,email_queue,case_rule_queue,celery_periodic:
