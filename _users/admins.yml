@@ -1,4 +1,4 @@
 dev_users:
   present:
-    - CHANGEME
+    - example  # change this and the corresponding example.pub file
   absent: []
