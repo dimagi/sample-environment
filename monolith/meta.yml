@@ -1,4 +1,6 @@
 deploy_env: monolith
 env_monitoring_id: monolith
+# 'all' deploys both commcare and formplayer.
+always_deploy_formplayer: 'all'
 users:
   - admins
