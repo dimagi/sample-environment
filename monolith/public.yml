@@ -4,13 +4,14 @@ elasticsearch_cluster_name: 'monolith-es'
 elasticsearch_version: 2.4.6
 elasticsearch_download_sha256: 5f7e4bb792917bb7ffc2a5f612dfec87416d54563f795d6a70637befef4cfc6f.
 
-backup_blobdb: False
-backup_postgres: False
+backup_blobdb: True
+backup_postgres: 'plain'
 backup_es_s3: False
-backup_couch: False
+backup_couch: True
 postgres_s3: False
 blobdb_s3: False
 couch_s3: False
+
 
 couchdb2:
   username: "{{ localsettings_private.COUCH_USERNAME }}"
