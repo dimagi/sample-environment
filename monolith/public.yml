@@ -42,6 +42,7 @@ couch_dbs:
     password: "{{ localsettings_private.COUCH_PASSWORD }}"
     is_https: False
 
+server_admin_email: commcarehq-ops+admins@commcarehq.test
 server_email: commcare@monolith.commcarehq.test
 default_from_email: commcare@monolith.commcarehq.test
 root_email: /dev/null
