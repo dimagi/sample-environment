@@ -42,10 +42,16 @@ couch_dbs:
     password: "{{ localsettings_private.COUCH_PASSWORD }}"
     is_https: False
 
-server_admin_email: commcarehq-ops+admins@commcarehq.test
-server_email: commcare@monolith.commcarehq.test
-default_from_email: commcare@monolith.commcarehq.test
-root_email: /dev/null
+# See the complete list of email addresses in commcare-cloud:
+# src/commcare_cloud/ansible/group_vars/all.yml
+# https://github.com/dimagi/commcare-cloud/blob/master/src/commcare_cloud/ansible/group_vars/all.yml
+root_email: commcarehq-ops+root@example.com
+server_email: commcarehq-noreply@example.com
+server_admin_email: commcarehq-ops+admins@example.com
+default_from_email: commcarehq-noreply@example.com
+privacy_email: privacy@dimagi.com
+feedback_email: hq-feedback@dimagi.com
+contact_email: info@example.com
 
 BROKER_URL: 'redis://localhost:6379/0'
 
