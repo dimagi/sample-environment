@@ -38,7 +38,7 @@ couchdb_use_haproxy: True
 haproxy_version: 2.4
 couch_dbs:
   default:
-    host: 127.0.0.1
+    host: "{{ groups.couchdb2_proxy.0 }}"
     port: 35984
     name: commcarehq
     username: "{{ localsettings_private.COUCH_USERNAME }}"
@@ -56,7 +56,7 @@ privacy_email: privacy@dimagi.com
 feedback_email: hq-feedback@dimagi.com
 contact_email: info@example.com
 
-BROKER_URL: 'redis://localhost:6379/0'
+BROKER_URL: 'redis://{{ groups.redis.0 }}:6379/0'
 
 KSPLICE_ACTIVE: no
 
@@ -114,7 +114,7 @@ localsettings:
   #  PILLOWTOP_MACHINE_ID:
   PILLOW_RETRY_QUEUE_ENABLED: True
   REDIS_DB: '0'
-  REDIS_HOST: "localhost"
+  REDIS_HOST: "{{ groups.redis.0 }}"
   REDIS_PORT: '6379'
   REMINDERS_QUEUE_ENABLED: False
   SMS_GATEWAY_URL: 'http://gw1.promessaging.com/sms.php'
