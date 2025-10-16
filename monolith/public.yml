@@ -56,7 +56,7 @@ privacy_email: privacy@dimagi.com
 feedback_email: hq-feedback@dimagi.com
 contact_email: info@example.com
 
-BROKER_URL: 'redis://{{ groups.redis.0 }}:6379/0'
+BROKER_URL: 'redis://:{{ REDIS_PASSWORD }}@{{ groups.redis.0 }}:6379/0'
 
 KSPLICE_ACTIVE: no
 
